@@ -2,3 +2,9 @@
 	margin-left: 12%;
 	margin-right: 12%;
 }
+
+@media (min-width: 1441px) {
+#portrait img {
+	margin-left: 24%;
+	margin-right: 24%;
+}
