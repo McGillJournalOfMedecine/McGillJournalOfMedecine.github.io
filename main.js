@@ -19,7 +19,8 @@ var Home=React.createClass({
 		Col=B.Col,
 		Row=B.Row,
 		Tabs=B.Tabs,
-		Tab=B.Tab;
+		Tab=B.Tab,
+		Panel=B.Panel;
 
 		var screen={
 			home: (
@@ -44,14 +45,14 @@ var Home=React.createClass({
 
 
 		return (
-			<div className="main">
+			<Panel className="main">
 				<Row style={{textAlign:"center"}}>
-					<Col lg={12} md={12} xs={12}><img src="banner.jpg"></img></Col>
+					<Col lg={12} md={12} xs={12}><img style={{width:"100%"}} id="banner" src="banner.jpg"></img></Col>
 				</Row>
 				<Tabs defaultActiveKey={1} animation={false}>
 					<Tab eventKey={1} title="Tab 1">{screen [this.state.screen]}</Tab>
 				</Tabs>
-			</div>	
+			</Panel>	
 			)
 	}
 
