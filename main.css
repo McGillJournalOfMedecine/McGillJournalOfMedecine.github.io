@@ -1,10 +1,10 @@
 .main {
-	margin-left: 12%;
-	margin-right: 12%;
+	margin-left: 180px;
+	margin-right: 180px;
 }
 
 @media (min-width: 1441px) {
-#portrait img {
-	margin-left: 24%;
-	margin-right: 24%;
+.main{
+	margin-left: 280px;
+	margin-right: 280px;
 }
