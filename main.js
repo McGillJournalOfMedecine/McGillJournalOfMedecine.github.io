@@ -26,16 +26,16 @@ var Home=React.createClass({
 				<div>
 			  <Carousel>
 			    <CarouselItem>
-			      <img width={100} height={250} alt="100x250" src="test.jpg"/>
+			      <img style={{margin:"auto"}} width={450} height={600} alt="900x500" src="test.jpg"/>
 			      <div className="carousel-caption">
 			        <h3>First slide label</h3>
 			        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
 			      </div>
 			    </CarouselItem>
 			    <CarouselItem>
-			      <img width={100} height={250} alt="100x250" src="test.jpg"/>
+			      <img style={{margin:"auto"}} width={450} height={600} alt="900x500" src="test.jpg"/>
 			      <div className="carousel-caption">
-			        <h3>First slide label</h3>
+			        <h3>Second slide label</h3>
 			        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
 			      </div>
 			    </CarouselItem>
@@ -49,7 +49,6 @@ var Home=React.createClass({
 					<Col lg={12} md={12} xs={12}><img src="banner.jpg"></img></Col>
 				</Row>
 				<Tabs defaultActiveKey={1} animation={false}>
-					<p>test</p>
 					<Tab eventKey={1} title="Tab 1">{screen [this.state.screen]}</Tab>
 				</Tabs>
 			</div>	
