@@ -18,5 +18,4 @@ var Home = React.createClass({
 	}
 
 });
-
-React.renderComponent(Home(), document.getElementById('content'));
+ReactDOM.render(<Home/>, document.getElementById('content'));
