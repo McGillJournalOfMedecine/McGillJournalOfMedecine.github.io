@@ -123,9 +123,10 @@ var Home=React.createClass({
 				<Row style={{textAlign:"center"}}>
 					<Col lg={12} md={12} xs={12}><img style={{width: "100%"}}id="banner" src="banner.jpg"></img></Col>
 				</Row>
-				<Tabs className="tabs" onSelect={this.handleSelect}  activeKey={this.state.key} tabWidth={10} paneWidth={10} defaultActiveKey={1} animation={false}>
-					<Tab eventKey={1} title={<p>test</p>}>{screen [this.state.screen]}</Tab>
-					<Tab eventKey={2} title= {<p>news</p>}>{screen [this.state.screen]}</Tab>
+				<Tabs className="tabs" onSelect={this.handleSelect}  activeKey={this.state.key} tabWidth={10} paneWidth={10} defaultActiveKey={this.state.key} animation={false}>
+					<Tab eventKey={1} title={<div className="tab">test</div>}>{screen [this.state.screen]}</Tab>
+					<Tab eventKey={2} title={<div className="tab">news</div>}>{screen [this.state.screen]}</Tab>
+					<Tab eventKey={3} title={<div className="tab">news</div>}>{screen [this.state.screen]}</Tab>
 				</Tabs>
 			</Panel>	
 			)
