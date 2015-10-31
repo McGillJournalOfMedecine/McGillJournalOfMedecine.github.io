@@ -1,5 +1,5 @@
 var NEWS=[];
-
+//loads react components into the aray NEWS. The news page will display the contents of the array
 $.getJSON( "news.json", function() {
 })
   .done(function( data ) {
@@ -24,10 +24,12 @@ var Home=React.createClass({
 			key:"1",
 		}
 	},
+	//changes screen state
 	handleScreen: function(stateName) {
 			this.setState({screen:stateName})
 			// location.hash = '#'+content;
 	},
+	//changes key state which handles the screen state which determines what you see
 	handleSelect: function(event){
 		// console.log(event)
 		this.setState({
@@ -45,6 +47,7 @@ var Home=React.createClass({
 		}
 		
 	},
+	//unused for now, this is a cookie cutter
 	handleChange: function(stateName) {
 		return function (event) {
 			console.log(event.target.value);
@@ -53,6 +56,7 @@ var Home=React.createClass({
 			this.setState(state)
 			}.bind(this);
 	},
+	//executes before anything appears on the screen. Looks at the URL and changes the state depending on the hashtag.
 	componentWillMount: function() {
 		var url = window.location.href.split("/")
 		var path = (url [url.length-1]).replace(/[#]/,"")
@@ -64,21 +68,18 @@ var Home=React.createClass({
 				var url = window.location.href.split("/");
 				window.location.href=url[0]+"#"+this.state.screen;
 				switch(this.state.screen){
-				case "main":
-					console.log(1)
-					this.setState({key:1})
-					break;
-				case "news":
-					console.log(2)
-					this.setState({key:2})
-					break;
-				default:
-					this.setState({key:1});
-		}
-})
-		// console.log(/.+?(?=\#)/.exec(url))
-		console.log(path)
-		// this.setState({})
+					case "main":
+						console.log(1)
+						this.setState({key:1})
+						break;
+					case "news":
+						console.log(2)
+						this.setState({key:2})
+						break;
+					default:
+						this.setState({key:1});
+			}
+		})
 	},
 	render: function (){
 		var B=ReactBootstrap,
