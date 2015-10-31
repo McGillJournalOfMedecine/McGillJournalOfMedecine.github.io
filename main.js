@@ -74,8 +74,9 @@ var Home=React.createClass({
 	componentDidMount: function() {
 		var url = window.location.href.split("/")
 		var path = (url [url.length-1]).replace(/[#]/,"")
-		// if (! path){path = "main"}
+		if (! path){path = "main"}
 		var temp=this.numerator(path)
+		console.log(temp)
 		this.setState({
 			screen:path, key:temp},
 			function(){
