@@ -125,7 +125,7 @@ var Home=React.createClass({
 				</Row>
 				<Tabs className="tabs" onSelect={this.handleSelect}  activeKey={this.state.key} tabWidth={10} paneWidth={10} defaultActiveKey={1} animation={false}>
 					<Tab eventKey={1} title={<p>test</p>}>{screen [this.state.screen]}</Tab>
-					<Tab eventKey={2} title= {<h2>news</h2>}>{screen [this.state.screen]}</Tab>
+					<Tab eventKey={2} title= {<p>news</p>}>{screen [this.state.screen]}</Tab>
 				</Tabs>
 			</Panel>	
 			)

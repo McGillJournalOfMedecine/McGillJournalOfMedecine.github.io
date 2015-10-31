@@ -9,11 +9,22 @@
 		margin-right: 24%;
 	}
 }
+
+.main.panel.panel-default{
+	width:960px;
+}
+
+body{
+	background-image: url(gradient-pattern-abstract-hd-wallpaper-1920x1080-2388.jpg);
+	background-repeat:no-repeat;
+}
+
 img#banner {
 	width: 100%;
 }
 
 h1#title{
-	font-size: 100px;
+	font-family: "Times New Roman";
+	font-size: 24px;
 
 }
