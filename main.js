@@ -6,7 +6,7 @@ $.getJSON( "news.json", function() {
       $.each( data, function( key, val ) {
         // $( "<img>" ).attr( "src", val.media.m ).appendTo( "#images" );
         // NEWS.concat([<div><h1>{key}</h1><p>{val}</p></div>])
-        NEWS.push([<h1 id="title">{key}</h1>, <p>{val[2]}</p>, <i>{val[0]}</i>,<em>{val[1]}</em>])
+        NEWS.push([<h1 id="title">{key}</h1>, <p>{val[2]}</p>, <i>Posted by {val[0]}</i>,<em> on {val[1]}</em>])
         // console.log([<div><h1>{key}</h1><p>{val}</p></div>])
       });
     })
@@ -124,8 +124,8 @@ var Home=React.createClass({
 					<Col lg={12} md={12} xs={12}><img style={{width: "100%"}}id="banner" src="banner.jpg"></img></Col>
 				</Row>
 				<Tabs className="tabs" onSelect={this.handleSelect}  activeKey={this.state.key} tabWidth={10} paneWidth={10} defaultActiveKey={1} animation={false}>
-					<Tab eventKey={1} title={<p>test</p>}>{screen [this.state.screen]}</Tab>
-					<Tab eventKey={2} title= {<p>news</p>}>{screen [this.state.screen]}</Tab>
+					<Tab eventKey={1} title={<div className="tab"> Home </div>}>{screen [this.state.screen]}</Tab>
+					<Tab eventKey={2} title= {<div className="tab"> News </div>}>{screen [this.state.screen]}</Tab>
 				</Tabs>
 			</Panel>	
 			)
