@@ -1,27 +1,8 @@
-var NEWS=[];
-//loads react components into the aray NEWS. The news page will display the contents of the array
-$.getJSON( "news.json", function() {
-})
-  .done(function( data ) {
-      $.each( data, function( key, val ) {
-        // $( "<img>" ).attr( "src", val.media.m ).appendTo( "#images" );
-        // NEWS.concat([<div><h1>{key}</h1><p>{val}</p></div>])
-        NEWS.push([<h1 id="title">{key}</h1>, <p>{val[2]}</p>, <i>Posted by {val[0]}</i>,<em> on {val[1]}</em>])
-        // console.log([<div><h1>{key}</h1><p>{val}</p></div>])
-      });
-    })
-  .fail(function() {
-    console.log( "error" );
-  })
-  .always(function() {
-  });
- 
-
 var Home=React.createClass({
 	getInitialState: function (){
 		return {
-			screen: "main",
-			key:"1",
+			screen: undefined,
+			key:undefined,
 		}
 	},
 	//changes screen state
@@ -29,32 +10,56 @@ var Home=React.createClass({
 			this.setState({screen:stateName})
 			// location.hash = '#'+content;
 	},
+	denumerator: function(name){
+		switch(name){
+					case 2:
+						return "news"						
+						break;
+					case 3:
+						return "submissions"
+						break;
+					case 4:
+						return "archives"
+						break;
+					case 5:
+						return "aboutUs"
+						break;
+					default:
+						return "main";
+				}
+
+	},
+	numerator: function(number){
+		switch(number){
+					case "news":
+						return 2						
+						break;
+					case "submissions":
+						return 3
+						break;
+					case "archives":
+						return 4
+						break;
+					case "aboutUs":
+						return 5
+						break;
+					default:
+						return 1;
+				}
+
+	},
 	//changes key state which handles the screen state which determines what you see
 	handleSelect: function(event){
-		// console.log(event)
-		this.setState({
-			key: event}, function(){var url = window.location.href.split("/")
-			window.location.href=url[0]+"#"+this.state.screen})
-		switch(event){
-			case 1:
-				this.setState({screen:"main"})
-				break;
-			case 2:
-				this.setState({screen:"news"})
-				break;
-			case 3:
-				this.setState({screen:"submissions"})
-				break;
-			case 4:
-				this.setState({screen:"archives"})
-				break;
-			case 5:
-				this.setState({screen:"aboutUs"})
-				break;
-			default:
-				this.setState({screen:"main"});
-		}
-		
+
+		console.log(event)
+		var temp=this.denumerator(event)
+		this.setState(
+			{key: event, screen: temp}, 
+			function(){
+					var url = window.location.href.split("/")
+					window.location.href=url[0]+"#"+this.state.screen
+		})
+
 	},
 	//unused for now, this is a cookie cutter
 	handleChange: function(stateName) {
@@ -66,40 +71,17 @@ var Home=React.createClass({
 			}.bind(this);
 	},
 	//executes before anything appears on the screen. Looks at the URL and changes the state depending on the hashtag.
-	componentWillMount: function() {
+	componentDidMount: function() {
 		var url = window.location.href.split("/")
 		var path = (url [url.length-1]).replace(/[#]/,"")
-		if (! path){path = "main"}
+		// if (! path){path = "main"}
+		var temp=this.numerator(path)
 		this.setState({
-			screen:path},
+			screen:path, key:temp},
 			function(){
-				console.log('test')
 				var url = window.location.href.split("/");
 				window.location.href=url[0]+"#"+this.state.screen;
-				switch(this.state.screen){
-					case "main":
-						console.log(1)
-						this.setState({key:1})
-						break;
-					case "news":
-						console.log(2)
-						this.setState({key:2})
-						break;
-					case "submissions":
-						console.log(3)
-						this.setState({key:3})
-						break;
-					case "archives":
-						console.log(4)
-						this.setState({key:4})
-						break;
-					case "aboutUs":
-						console.log(5)
-						this.setState({key:5})
-						break;
-					default:
-						this.setState({key:1});
-			}
+
 		})
 	},
 	render: function (){
@@ -111,7 +93,23 @@ var Home=React.createClass({
 		Tabs=B.Tabs,
 		Tab=B.Tab,
 		Panel=B.Panel;
-
+		var NEWS=[];
+		$.ajaxSetup({
+        async: false
+    });
+		//loads react components into the aray NEWS. The news page will display the contents of the array
+		$.getJSON( "news.json", function() {
+		})
+		  .done(function( data ) {
+		      $.each( data, function( key, val ) {
+			        NEWS.push([<h1 id="title">{key}</h1>, <p>{val[2]}</p>, <i>{val[0]}</i>,<em>{val[1]}</em>])
+		      });
+		    })
+		  .fail(function() {
+		    console.log( "error" );
+		  })
+		  .always(function() {
+		  });
 		var screen={
 			main: (
 				<div>
@@ -161,7 +159,6 @@ var Home=React.createClass({
 				</div>
 				),
 		};
-
 
 		return (
 			<Panel className="main">
