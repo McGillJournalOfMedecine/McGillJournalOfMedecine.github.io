@@ -1,8 +1,8 @@
 var Home=React.createClass({
 	getInitialState: function (){
 		return {
-			screen: undefined,
-			key:undefined,
+			screen: 1,
+			key:"main",
 		}
 	},
 	//changes screen state
