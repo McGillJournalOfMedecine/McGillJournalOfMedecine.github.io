@@ -9,6 +9,11 @@
 	margin-right: 24%;
 }
 
-/*img#banner {
+img#banner {
 	width: 100%;
-}*/
+}
+
+h1#title{
+	font-size: 200px;
+
+}

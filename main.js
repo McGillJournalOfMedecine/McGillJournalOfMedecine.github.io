@@ -73,7 +73,7 @@ var Home=React.createClass({
 		return (
 			<Panel className="main">
 				<Row style={{textAlign:"center"}}>
-					<Col lg={12} md={12} xs={12}><img style={{width:"100%"}} id="banner" src="banner.jpg"></img></Col>
+					<Col lg={12} md={12} xs={12}><img id="banner" src="banner.jpg"></img></Col>
 				</Row>
 				<Tabs className="tabs" tabWidth={10} paneWidth={10} defaultActiveKey={1} animation={false}>
 					<Tab eventKey={1} title="Tab 1">{screen ["home"]}</Tab>
