@@ -1,3 +1,24 @@
+var NEWS=[];
+
+$.getJSON( "news.json", function() {
+})
+  .done(function( data ) {
+      $.each( data, function( key, val ) {
+        // $( "<img>" ).attr( "src", val.media.m ).appendTo( "#images" );
+        // NEWS.concat([<div><h1>{key}</h1><p>{val}</p></div>])
+        console.log(typeof key)
+        NEWS.push([<h1>{key}</h1>, <p>{val}</p>])
+        // console.log([<div><h1>{key}</h1><p>{val}</p></div>])
+      });
+    })
+  .fail(function() {
+    console.log( "error" );
+  })
+  .always(function() {
+    console.log( NEWS );
+  });
+ 
+
 var Home=React.createClass({
 	getInitialState: function (){
 		return {
@@ -41,6 +62,11 @@ var Home=React.createClass({
 			      </div>
 			    </CarouselItem>
 		    </Carousel> </div>),
+			news: (
+				<div>
+					{NEWS}
+				</div>
+				),
 		};
 
 
@@ -50,7 +76,8 @@ var Home=React.createClass({
 					<Col lg={12} md={12} xs={12}><img style={{width:"100%"}} id="banner" src="banner.jpg"></img></Col>
 				</Row>
 				<Tabs defaultActiveKey={1} animation={false}>
-					<Tab eventKey={1} title="Tab 1">{screen [this.state.screen]}</Tab>
+					<Tab eventKey={1} title="Tab 1">{screen ["home"]}</Tab>
+					<Tab eventKey={2} title="Tab 2">{screen ["news"]}</Tab>
 				</Tabs>
 			</Panel>	
 			)
