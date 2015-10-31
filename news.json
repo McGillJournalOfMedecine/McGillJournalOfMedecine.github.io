@@ -1,5 +1,13 @@
 {
-	"title1": "hahgagag",
-	"title2": "article"
+	"title1": [
+		"author",
+		"date",
+		"content1"
+	],
+	"title2": [
+		"author2",
+		"date2",
+		"content1"
+	]
 
 }

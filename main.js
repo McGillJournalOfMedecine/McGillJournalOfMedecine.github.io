@@ -7,7 +7,7 @@ $.getJSON( "news.json", function() {
         // $( "<img>" ).attr( "src", val.media.m ).appendTo( "#images" );
         // NEWS.concat([<div><h1>{key}</h1><p>{val}</p></div>])
         console.log(typeof key)
-        NEWS.push([<h1>{key}</h1>, <p>{val}</p>])
+        NEWS.push([<h1>{key}</h1>, <p>{val[2]}</p>, <i>{val[0]}</i>,<em>{val[1]}</em>])
         // console.log([<div><h1>{key}</h1><p>{val}</p></div>])
       });
     })
