@@ -4,16 +4,16 @@
 }
 
 @media (min-width: 1441px) {
-.main{
-	margin-left: 24%;
-	margin-right: 24%;
+	.main{
+		margin-left: 24%;
+		margin-right: 24%;
+	}
 }
-
 img#banner {
 	width: 100%;
 }
 
 h1#title{
-	font-size: 200px;
+	font-size: 100px;
 
 }

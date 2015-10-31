@@ -6,7 +6,6 @@ $.getJSON( "news.json", function() {
       $.each( data, function( key, val ) {
         // $( "<img>" ).attr( "src", val.media.m ).appendTo( "#images" );
         // NEWS.concat([<div><h1>{key}</h1><p>{val}</p></div>])
-        console.log(typeof key)
         NEWS.push([<h1 id="title">{key}</h1>, <p>{val[2]}</p>, <i>{val[0]}</i>,<em>{val[1]}</em>])
         // console.log([<div><h1>{key}</h1><p>{val}</p></div>])
       });
@@ -15,15 +14,36 @@ $.getJSON( "news.json", function() {
     console.log( "error" );
   })
   .always(function() {
-    console.log( NEWS );
   });
  
 
 var Home=React.createClass({
 	getInitialState: function (){
 		return {
-			screen: "home"
+			screen: "main",
+			key:"1",
 		}
+	},
+	handleScreen: function(stateName) {
+			this.setState({screen:stateName})
+			// location.hash = '#'+content;
+	},
+	handleSelect: function(event){
+		// console.log(event)
+		this.setState({
+			key: event}, function(){var url = window.location.href.split("/")
+			window.location.href=url[0]+"#"+this.state.screen})
+		switch(event){
+			case 1:
+				this.setState({screen:"main"})
+				break;
+			case 2:
+				this.setState({screen:"news"})
+				break;
+			default:
+				this.setState({screen:"main"});
+		}
+		
 	},
 	handleChange: function(stateName) {
 		return function (event) {
@@ -32,6 +52,33 @@ var Home=React.createClass({
 			state[stateName]=event.target ? event.target.value : event;
 			this.setState(state)
 			}.bind(this);
+	},
+	componentWillMount: function() {
+		var url = window.location.href.split("/")
+		var path = (url [url.length-1]).replace(/[#]/,"")
+		if (! path){path = "main"}
+		this.setState({
+			screen:path},
+			function(){
+				console.log('test')
+				var url = window.location.href.split("/");
+				window.location.href=url[0]+"#"+this.state.screen;
+				switch(this.state.screen){
+				case "main":
+					console.log(1)
+					this.setState({key:1})
+					break;
+				case "news":
+					console.log(2)
+					this.setState({key:2})
+					break;
+				default:
+					this.setState({key:1});
+		}
+})
+		// console.log(/.+?(?=\#)/.exec(url))
+		console.log(path)
+		// this.setState({})
 	},
 	render: function (){
 		var B=ReactBootstrap,
@@ -44,7 +91,7 @@ var Home=React.createClass({
 		Panel=B.Panel;
 
 		var screen={
-			home: (
+			main: (
 				<div>
 			  <Carousel>
 			    <CarouselItem>
@@ -73,11 +120,11 @@ var Home=React.createClass({
 		return (
 			<Panel className="main">
 				<Row style={{textAlign:"center"}}>
-					<Col lg={12} md={12} xs={12}><img id="banner" src="banner.jpg"></img></Col>
+					<Col lg={12} md={12} xs={12}><img style={{width: "100%"}}id="banner" src="banner.jpg"></img></Col>
 				</Row>
-				<Tabs className="tabs" tabWidth={10} paneWidth={10} defaultActiveKey={1} animation={false}>
-					<Tab eventKey={1} title="Tab 1">{screen ["home"]}</Tab>
-					<Tab eventKey={2} title="Tab 2">{screen ["news"]}</Tab>
+				<Tabs className="tabs" onSelect={this.handleSelect}  activeKey={this.state.key} tabWidth={10} paneWidth={10} defaultActiveKey={1} animation={false}>
+					<Tab eventKey={1} title={<p>test</p>}>{screen [this.state.screen]}</Tab>
+					<Tab eventKey={2} title= {<h2>news</h2>}>{screen [this.state.screen]}</Tab>
 				</Tabs>
 			</Panel>	
 			)
