@@ -102,7 +102,7 @@ var Home=React.createClass({
 		})
 		  .done(function( data ) {
 		      $.each( data, function( key, val ) {
-			        NEWS.push([<h1 id="title">{key}</h1>, <p>{val[2]}</p>, <i>{val[0]}</i>,<em>{val[1]}</em>])
+			        NEWS.push([<h1 id="title">{key}</h1>, <p>{val[2]}</p>, <i>Posted by {val[0]}</i>,<em> on {val[1]}</em>])
 		      });
 		    })
 		  .fail(function() {
