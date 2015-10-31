@@ -7,7 +7,7 @@ $.getJSON( "news.json", function() {
         // $( "<img>" ).attr( "src", val.media.m ).appendTo( "#images" );
         // NEWS.concat([<div><h1>{key}</h1><p>{val}</p></div>])
         console.log(typeof key)
-        NEWS.push([<h1>{key}</h1>, <p>{val[2]}</p>, <i>{val[0]}</i>,<em>{val[1]}</em>])
+        NEWS.push([<h1 id="title">{key}</h1>, <p>{val[2]}</p>, <i>{val[0]}</i>,<em>{val[1]}</em>])
         // console.log([<div><h1>{key}</h1><p>{val}</p></div>])
       });
     })
@@ -75,7 +75,7 @@ var Home=React.createClass({
 				<Row style={{textAlign:"center"}}>
 					<Col lg={12} md={12} xs={12}><img style={{width:"100%"}} id="banner" src="banner.jpg"></img></Col>
 				</Row>
-				<Tabs defaultActiveKey={1} animation={false}>
+				<Tabs className="tabs" tabWidth={10} paneWidth={10} defaultActiveKey={1} animation={false}>
 					<Tab eventKey={1} title="Tab 1">{screen ["home"]}</Tab>
 					<Tab eventKey={2} title="Tab 2">{screen ["news"]}</Tab>
 				</Tabs>
