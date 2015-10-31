@@ -42,6 +42,15 @@ var Home=React.createClass({
 			case 2:
 				this.setState({screen:"news"})
 				break;
+			case 3:
+				this.setState({screen:"submissions"})
+				break;
+			case 4:
+				this.setState({screen:"archives"})
+				break;
+			case 5:
+				this.setState({screen:"aboutUs"})
+				break;
 			default:
 				this.setState({screen:"main"});
 		}
@@ -76,6 +85,18 @@ var Home=React.createClass({
 						console.log(2)
 						this.setState({key:2})
 						break;
+					case "submissions":
+						console.log(3)
+						this.setState({key:3})
+						break;
+					case "archives":
+						console.log(4)
+						this.setState({key:4})
+						break;
+					case "aboutUs":
+						console.log(5)
+						this.setState({key:5})
+						break;
 					default:
 						this.setState({key:1});
 			}
@@ -96,23 +117,47 @@ var Home=React.createClass({
 				<div>
 			  <Carousel>
 			    <CarouselItem>
-			      <img style={{margin:"auto"}} width={450} height={600} alt="900x500" src="test.jpg"/>
+			      <img style={{margin:"auto"}} width={450} height={600} alt="900x500" src="test4.jpg"/>
 			      <div className="carousel-caption">
 			        <h3>First slide label</h3>
 			        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
 			      </div>
 			    </CarouselItem>
 			    <CarouselItem>
-			      <img style={{margin:"auto"}} width={450} height={600} alt="900x500" src="test.jpg"/>
+			      <img style={{margin:"auto"}} width={450} height={600} alt="900x500" src="test6.jpg"/>
 			      <div className="carousel-caption">
 			        <h3>Second slide label</h3>
+			        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+			      </div>
+			    </CarouselItem>
+			    <CarouselItem>
+			      <img style={{margin:"auto"}} width={450} height={600} alt="900x500" src="test5.jpg"/>
+			      <div className="carousel-caption">
+			        <h3>Third slide label</h3>
 			        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
 			      </div>
 			    </CarouselItem>
 		    </Carousel> </div>),
 			news: (
 				<div>
+					<h1> Latest News </h1>
 					{NEWS}
+				</div>
+				),
+			submissions: (
+				<div>
+					<h1> Contact Our Editors </h1>
+					<a href="mailto:chuong.francois.trinh@gmail.com">Kanye West</a>
+				</div>
+				),
+			archives: (
+				<div>
+					<h1> Archives </h1>
+				</div>
+				),
+			aboutUs: (
+				<div>
+					<h1> About Us </h1>
 				</div>
 				),
 		};
@@ -126,7 +171,9 @@ var Home=React.createClass({
 				<Tabs className="tabs" onSelect={this.handleSelect}  activeKey={this.state.key} tabWidth={10} paneWidth={10} defaultActiveKey={this.state.key} animation={false}>
 					<Tab eventKey={1} title={<div className="tab">Home</div>}>{screen [this.state.screen]}</Tab>
 					<Tab eventKey={2} title={<div className="tab">News</div>}>{screen [this.state.screen]}</Tab>
-					<Tab eventKey={3} title={<div className="tab">news</div>}>{screen [this.state.screen]}</Tab>
+					<Tab eventKey={3} title={<div className="tab">Submissions</div>}>{screen [this.state.screen]}</Tab>
+					<Tab eventKey={4} title={<div className="tab">Archives</div>}>{screen [this.state.screen]}</Tab>
+					<Tab eventKey={5} title={<div className="tab">About Us</div>}>{screen [this.state.screen]}</Tab>
 				</Tabs>
 			</Panel>	
 			)

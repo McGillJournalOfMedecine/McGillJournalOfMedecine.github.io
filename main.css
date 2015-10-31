@@ -42,3 +42,12 @@ i{
 em{
 	color:darkgrey;
 }
+
+.carousel img{
+	height: 523px;
+	width: 928px;
+}
+
+h1 {
+	font-family: "Times New Roman";
+}
