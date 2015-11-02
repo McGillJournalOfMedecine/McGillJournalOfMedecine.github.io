@@ -112,7 +112,7 @@ var Home=React.createClass({
 			})
 	  	.done(function( data ) {
 	      $.each( data, function( key, val ) {
-	      	var temp="Pictures/"+val[0]
+	      	var temp="../Pictures/"+val[0]
 	      	CAROUSEL.push([
 	      		<CarouselItem>
 				      <img style={{margin:"auto"}} width={450} height={600} alt="900x500" src={temp}/>
