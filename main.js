@@ -4,7 +4,7 @@ $.ajaxSetup({
       async: false
   });
 //loads react components into the aray NEWS. The news page will display the contents of the array
-$.getJSON( "news.json", function() {
+$.getJSON( "Data/news.json", function() {
 })
   .done(function( data ) {
       $.each( data, function( key, val ) {
@@ -108,7 +108,7 @@ var Home=React.createClass({
 		})
 		var B=ReactBootstrap,
 		CarouselItem=B.CarouselItem;
-		$.getJSON( "carousel.json", function() {
+		$.getJSON( "Data/carousel.json", function() {
 			})
 	  	.done(function( data ) {
 	      $.each( data, function( key, val ) {
@@ -138,8 +138,6 @@ var Home=React.createClass({
 		Tabs=B.Tabs,
 		Tab=B.Tab,
 		Panel=B.Panel;
-		
-		
 
 		var screen={
 			main: (
