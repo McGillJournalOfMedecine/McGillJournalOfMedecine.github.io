@@ -108,10 +108,16 @@ var Home=React.createClass({
 		})
 		var B=ReactBootstrap,
 		CarouselItem=B.CarouselItem;
-		$.getJSON( "Data/carousel.json", function() {
+		$.ajaxSetup({
+      async: false
+  });
+		$.getJSON( "Data/pictureCarousel.json", function() { 
 			})
 	  	.done(function( data ) {
 	      $.each( data, function( key, val ) {
+
+	     		console.log(data)
+	      	console.log(key, val[0], val[1])
 	      	var temp="../Pictures/"+val[0]
 	      	CAROUSEL.push([
 	      		<CarouselItem>
