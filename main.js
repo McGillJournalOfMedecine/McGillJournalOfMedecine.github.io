@@ -32,60 +32,6 @@ var Home=React.createClass({
 			this.setState({screen:stateName})
 			// location.hash = '#'+content;
 	},
-	denumerator: function(name){
-		switch(name){
-					case 2:
-						return "news"						
-						break;
-					case 3:
-						return "submissions"
-						break;
-					case 4:
-						return "archives"
-						break;
-					case 5:
-						return "aboutUs"
-						break;
-					default:
-						return "main";
-				}
-
-	},
-	numerator: function(number){
-		switch(number){
-					case "news":
-						return 2						
-						break;
-					case "submissions":
-						return 3
-						break;
-					case "archives":
-						return 4
-						break;
-					case "aboutUs":
-						return 5
-						break;
-					default:
-						return 1;
-				}
-
-	},
-	//changes key state which handles the screen state which determines what you see
-	handleSelect: function(event){
-
-		console.log(event)
-		var temp=this.denumerator(event)
-		this.setState(
-			{key: event, screen: temp}, 
-			function(){
-					var url = window.location.href.split("/")
-					window.location.href=url[0]+"#"+this.state.screen
-		})
-
-	},
-	carousellify: function(){
-
-	},
 	//unused for now, this is a cookie cutter
 	handleChange: function(stateName) {
 		return function (event) {
@@ -98,21 +44,18 @@ var Home=React.createClass({
 	//executes before anything appears on the screen. Looks at the URL and changes the state depending on the hashtag.
 	componentDidMount: function() {
 		var url = window.location.href.split("/")
+		console.log(url)
 		var path = (url [url.length-1]).replace(/[#]/,"")
 		if (! path){path = "main"}
-		var temp=this.numerator(path)
-		console.log(temp)
-		this.setState({
-			screen:path, key:temp},
-			function(){
-				var url = window.location.href.split("/");
-				window.location.href=url[0]+"#"+this.state.screen;
-		})
+		this.setState({screen:path})
+		// console.log(/.+?(?=\#)/.exec(url))
+		console.log(path)
+		// this.setState({})
 		var B=ReactBootstrap,
 		CarouselItem=B.CarouselItem;
 		$.ajaxSetup({
       async: false
-  });
+  	});
 		$.getJSON( "Data/pictureCarousel.json", function() { 
 			})
 	  	.done(function( data ) {
@@ -145,7 +88,13 @@ var Home=React.createClass({
 		Row=B.Row,
 		Tabs=B.Tabs,
 		Tab=B.Tab,
-		Panel=B.Panel;
+		Panel=B.Panel,
+		Navbar=B.Navbar,
+		NavBrand=B.NavBrand,
+		Nav=B.Nav,
+		NavItem=B.NavItem,
+		NavDropdown=B.NavDropdown,
+		MenuItem=B.MenuItem;
 
 		var screen={
 			main: (
@@ -175,19 +124,51 @@ var Home=React.createClass({
 				</div>
 				),
 		};
-
+// <Tabs className="tabs" onSelect={this.handleSelect}  activeKey={this.state.key} tabWidth={10} paneWidth={10} defaultActiveKey={this.state.key} animation={false}>
+// 									<Tab eventKey={1} title={<div className="tab">Home</div>}>{screen [this.state.screen]}</Tab>
+// 									<Tab eventKey={2} title={<div className="tab">News</div>}>{screen [this.state.screen]}</Tab>
+// 									<Tab eventKey={3} title={<div className="tab">Submissions</div>}>{screen [this.state.screen]}</Tab>
+// 									<Tab eventKey={4} title={<div className="tab">Archives</div>}>{screen [this.state.screen]}</Tab>
+// 									<Tab eventKey={5} title={<div className="tab">About Us</div>}>{screen [this.state.screen]}</Tab>
+// 								</Tabs>
 		return (
-			<Panel className="main">
-				<Row style={{textAlign:"center"}}>
-					<Col lg={12} md={12} xs={12}><img style={{width: "100%"}}id="banner" src="Pictures/banner.jpg"></img></Col>
-				</Row>
-				<Tabs className="tabs" onSelect={this.handleSelect}  activeKey={this.state.key} tabWidth={10} paneWidth={10} defaultActiveKey={this.state.key} animation={false}>
-					<Tab eventKey={1} title={<div className="tab">Home</div>}>{screen [this.state.screen]}</Tab>
-					<Tab eventKey={2} title={<div className="tab">News</div>}>{screen [this.state.screen]}</Tab>
-					<Tab eventKey={3} title={<div className="tab">Submissions</div>}>{screen [this.state.screen]}</Tab>
-					<Tab eventKey={4} title={<div className="tab">Archives</div>}>{screen [this.state.screen]}</Tab>
-					<Tab eventKey={5} title={<div className="tab">About Us</div>}>{screen [this.state.screen]}</Tab>
-				</Tabs>
+			<Panel className="encompass">
+				<div className="header">
+					<Row style={{textAlign:"center"}}>
+						<Col lg={1} md={12} xs={12} className="bottom-column">
+							<img style={{width: "75%"}}id="banner" src="Pictures/pen.png"></img>
+						</Col>
+						<Col lg={11} md={12} xs={12} className="bottom-column">
+							<Row>	
+								<Col className="banner" lg={12} md={12} xs={12}>
+									<img style={{width: "50%"}}id="banner" src="Pictures/banner.jpg"></img>
+								</Col>
+								<Col lg={12} md={12} xs={12}>	
+									<Navbar>
+								    <NavBrand><a href="#main" onClick = {this.handleScreen.bind(null,'main')}>McGill Journal of Medecine</a></NavBrand>
+								    <Nav>
+								      <NavItem eventKey={1} href="#news" onClick = {this.handleScreen.bind(null,'news')}>News</NavItem>
+								      <NavItem eventKey={2} href="#submissions" onClick = {this.handleScreen.bind(null,'submissions')}>Submissions</NavItem>
+								      <NavDropdown eventKey={3} title="Archives" id="basic-nav-dropdown">
+								        <MenuItem eventKey="1" href="#archives" onClick = {this.handleScreen.bind(null,'archives')}>Old Stuff</MenuItem>
+								        <MenuItem eventKey="2">Really Old Stuff</MenuItem>
+								        <MenuItem eventKey="3">A Canadian discovered insulin</MenuItem>
+								        <MenuItem divider />
+								        <MenuItem eventKey="4">All</MenuItem>
+								      </NavDropdown>
+								      <NavItem eventKey={2} href="#aboutUs" onClick = {this.handleScreen.bind(null,'aboutUs')}>About Us</NavItem>
+								    </Nav>
+								  </Navbar>
+								</Col>	
+							</Row>	
+						</Col>
+					</Row>
+					<Row className="main">
+						<Col lg={12} md={12} xs={12}>
+							{screen [this.state.screen]}
+						</Col>	
+					</Row>	
+				</div>
 			</Panel>	
 			)
 	}

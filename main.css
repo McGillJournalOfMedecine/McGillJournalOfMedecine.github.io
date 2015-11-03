@@ -1,6 +1,11 @@
 .main {
-	margin-left: 12%;
-	margin-right: 12%;
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
+.header{
+	margin-left: 2%;
+	margin-right: 2%;
 }
 
 @media (min-width: 1441px) {
@@ -10,10 +15,10 @@
 	}
 }
 
-.main.panel.panel-default{
-	height:1080px;
-	width:960px;
-	margin:auto;
+.encompass.panel.panel-default{
+/*	height:1080px;
+	width:960px;*/
+	margin:0;
 	-webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
        -moz-animation: fadein 1s; /* Firefox < 16 */
         -ms-animation: fadein 1s; /* Internet Explorer */
@@ -56,23 +61,48 @@ body{
 	/*background-position: center left!important;*/
 	/*background-size: 10%;*/
 	background: url(Pictures/pen.png) no-repeat center center fixed; 
-  -webkit-background-size: 10%;
+  /*-webkit-background-size: 10%;*/
   -moz-background-size: 10%;
   -o-background-size: 10%;
   background-size: 10%;
 	/*background-margin: 25%;*/
-	
 }
-
+.bottom-column
+{
+    float: none;
+    display: table-cell;
+    vertical-align: bottom;
+}
+.bottom-column.col-lg-1.col-md-12.col-xs-12{
+	margin:0;
+	/*padding: 0;*/
+	/*padding-left: 2%;
+	padding-top: 0;
+	padding-right: 0;
+	padding-bottom: 0;*/
+}
+.bottom-column.col-lg-11.col-md-12.col-xs-12{
+	margin:0;
+	padding: 0;
+}
 img#banner {
 	width: 100%;
+}
+
+.banner{
+	text-align: left;
 }
 
 h1#title{
 	font-family: "Times New Roman";
 	font-size: 24px;
 }
+nav.navbar.navbar-default{
+	/*margin-right: 13.5%;*/
+	margin-bottom: 0;
+	float: left;
 
+}
 .tab{
 	font-family: "Times New Roman";
 	font-size: 24px;
