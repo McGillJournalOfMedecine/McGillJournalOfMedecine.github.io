@@ -136,17 +136,17 @@ var Home=React.createClass({
 				<div className="header">
 					<Row style={{textAlign:"center"}}>
 						<Col lg={1} md={12} xs={12} className="bottom-column">
-							<img style={{width: "75%"}}id="banner" src="Pictures/pen.png"></img>
+							<img style={{width: "100px"}}id="pen" src="Pictures/pen.png"></img>
 						</Col>
 						<Col lg={11} md={12} xs={12} className="bottom-column">
 							<Row>	
-								<Col className="banner" lg={12} md={12} xs={12}>
+								<Col className="banner" lg={12} md={12} sm={12} xs={12}>
 									<img style={{width: "50%"}}id="banner" src="Pictures/banner.jpg"></img>
 								</Col>
 								<Col lg={12} md={12} xs={12}>	
-									<Navbar>
+									<Navbar toggleNavKey={0} fixedTop>
 								    <NavBrand><a href="#main" onClick = {this.handleScreen.bind(null,'main')}>McGill Journal of Medecine</a></NavBrand>
-								    <Nav>
+								    <Nav eventKey={0}>
 								      <NavItem eventKey={1} href="#news" onClick = {this.handleScreen.bind(null,'news')}>News</NavItem>
 								      <NavItem eventKey={2} href="#submissions" onClick = {this.handleScreen.bind(null,'submissions')}>Submissions</NavItem>
 								      <NavDropdown eventKey={3} title="Archives" id="basic-nav-dropdown">
