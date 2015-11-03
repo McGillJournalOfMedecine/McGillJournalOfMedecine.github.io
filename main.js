@@ -4,6 +4,8 @@ $.ajaxSetup({
       async: false
   });
 //loads react components into the aray NEWS. The news page will display the contents of the array
+
+// $('body').css('background-image', 'Pictures/pen.png)');
 $.getJSON( "Data/news.json", function() {
 })
   .done(function( data ) {

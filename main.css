@@ -50,8 +50,17 @@
     to   { opacity: 1; }
 }
 body{
-	background-image: url(Pictures/gradient-pattern-abstract-hd-wallpaper-1920x1080-2388.jpg);
-	background-repeat:no-repeat;
+	/*background-image: url(Pictures/gradient-pattern-abstract-hd-wallpaper-1920x1080-2388.jpg);*/
+	/*background-image: url(Pictures/pen.png);*/
+	/*background-repeat:no-repeat;*/
+	/*background-position: center left!important;*/
+	/*background-size: 10%;*/
+	background: url(Pictures/pen.png) no-repeat center center fixed; 
+  -webkit-background-size: 10%;
+  -moz-background-size: 10%;
+  -o-background-size: 10%;
+  background-size: 10%;
+	/*background-margin: 25%;*/
 	
 }
 
