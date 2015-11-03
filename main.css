@@ -4,8 +4,8 @@
 }
 
 .header{
-	margin-left: 2%;
-	margin-right: 2%;
+	/*margin-left: 2%;
+	margin-right: 2%;*/
 }
 
 @media (min-width: 1441px) {
@@ -15,6 +15,26 @@
 	}
 }
 
+@media (min-width: 768px){
+	.bottom-column{
+	    float: none;
+	    display: table-cell;
+	    vertical-align: bottom;
+	}
+	img#banner {
+		min-width: 800px;
+	}
+}
+@media(max-width: 767px){
+	img#banner {
+	display: none;
+}	
+
+}
+
+.navbar-collapse {
+  overflow: hidden;
+}
 .encompass.panel.panel-default{
 /*	height:1080px;
 	width:960px;*/
@@ -67,12 +87,7 @@ body{
   background-size: 10%;
 	/*background-margin: 25%;*/
 }
-.bottom-column
-{
-    float: none;
-    display: table-cell;
-    vertical-align: bottom;
-}
+
 .bottom-column.col-lg-1.col-md-12.col-xs-12{
 	margin:0;
 	/*padding: 0;*/
@@ -85,10 +100,8 @@ body{
 	margin:0;
 	padding: 0;
 }
-img#banner {
-	width: 100%;
+img#pen {
 }
-
 .banner{
 	text-align: left;
 }
