@@ -21,10 +21,18 @@ body {
   min-height: 100%;
 }
 #content,.encompass.panel.panel-default{
-	height:150%;
+	height:100%;
 }
 .panel-body{
 	height: 100%;
+}
+.footer{
+	text-align: center;
+	padding-bottom: 0;
+	margin-bottom: 0;
+	color:grey;
+	background-color: #cccccc;
+
 }
 @media (min-width: 768px){
 	.bottom-column{

@@ -1,16 +1,23 @@
 var NEWS=[];
 var CAROUSEL=[];
+var today=new Date();
+var milliseconds=today.getMilliseconds();
+$(document).ready(function() {
+  $.ajaxSetup({ cache: false });
+});
 $.ajaxSetup({
-      async: false
+      async: false,
+      cache: false
   });
 //loads react components into the aray NEWS. The news page will display the contents of the array
 
 // $('body').css('background-image', 'Pictures/pen.png)');
-$.getJSON( "Data/news.json", function() {
+$.getJSON( "Data/news.json"+'?'+milliseconds, function() {
 })
   .done(function( data ) {
       $.each( data, function( key, val ) {
-	        NEWS.push([<h1 id="title">{key}</h1>, <p>{val[2]}</p>, <i>Posted by {val[0]}</i>,<em> on {val[1]}</em>])
+      	console.log(data)
+	       NEWS.push([<h1 id="title">{key}</h1>, <p>{val[2]}</p>, <i>Posted by {val[0]}</i>,<em> on {val[1]}</em>])
       });
     })
   .fail(function() {
@@ -35,7 +42,6 @@ var Home=React.createClass({
 	//unused for now, this is a cookie cutter
 	handleChange: function(stateName) {
 		return function (event) {
-			console.log(event.target.value);
 			var state={};
 			state[stateName]=event.target ? event.target.value : event;
 			this.setState(state)
@@ -44,25 +50,22 @@ var Home=React.createClass({
 	//executes before anything appears on the screen. Looks at the URL and changes the state depending on the hashtag.
 	componentDidMount: function() {
 		var url = window.location.href.split("/")
-		console.log(url)
 		var path = (url [url.length-1]).replace(/[#]/,"")
 		if (! path){path = "main"}
 		this.setState({screen:path})
 		// console.log(/.+?(?=\#)/.exec(url))
-		console.log(path)
 		// this.setState({})
+		
 		var B=ReactBootstrap,
 		CarouselItem=B.CarouselItem;
 		$.ajaxSetup({
-      async: false
+      async: false,
+      cache: false
   	});
-		$.getJSON( "Data/pictureCarousel.json", function() { 
+		$.getJSON( "Data/pictureCarousel.json"+'?'+milliseconds, function() { 
 			})
 	  	.done(function( data ) {
 	      $.each( data, function( key, val ) {
-
-	     		console.log(data)
-	      	console.log(key, val[0], val[1])
 	      	var temp="../Pictures/"+val[0]
 	      	CAROUSEL.push([
 	      		<CarouselItem>
@@ -133,44 +136,49 @@ var Home=React.createClass({
 // 									<Tab eventKey={5} title={<div className="tab">About Us</div>}>{screen [this.state.screen]}</Tab>
 // 								</Tabs>
 		return (
-			<Panel className="encompass" footer="All Copyrights goes to McGill Journal of Medicine ©">
-				<div className="header">
-					<Row style={{textAlign:"center"}}>
-						<Col lg={1} md={12} xs={12} className="bottom-column">
-							<img style={{width: "100px"}}id="pen" src="Pictures/pen.png"></img>
-						</Col>
-						<Col lg={11} md={12} xs={12} className="bottom-column">
-							<Row>	
-								<Col className="banner" lg={12} md={12} sm={12} xs={12}>
-									<h1 ><b id="headTitle">McGill Journal of Medecine</b></h1>
-								</Col>
-								<Col lg={12} md={12} xs={12}>	
-									<Navbar toggleNavKey={0} >
-								    <NavBrand><a href="#main" onClick = {this.handleScreen.bind(null,'main')}>Home</a></NavBrand>
-								    <Nav className="nana" eventKey={0}>
-								      <NavItem eventKey={1} href="#news" onClick = {this.handleScreen.bind(null,'news')}>News</NavItem>
-								      <NavItem eventKey={2} href="#submissions" onClick = {this.handleScreen.bind(null,'submissions')}>Submissions</NavItem>
-								      <NavDropdown eventKey={3} title="Archives" id="basic-nav-dropdown">
-								        <MenuItem eventKey="1" href="#archives" onClick = {this.handleScreen.bind(null,'archives')}>Old Stuff</MenuItem>
-								        <MenuItem eventKey="2">Really Old Stuff</MenuItem>
-								        <MenuItem eventKey="3">A Canadian discovered insulin</MenuItem>
-								        <MenuItem divider />
-								        <MenuItem eventKey="4">All</MenuItem>
-								      </NavDropdown>	
-								      <NavItem eventKey={2} href="#aboutUs" onClick = {this.handleScreen.bind(null,'aboutUs')}>About Us</NavItem>
-								    </Nav>
-								  </Navbar>
-								</Col>	
-							</Row>	
-						</Col>
-					</Row>
-					<Row className="main">
-						<Col lg={12} md={12} xs={12}>
-							{screen [this.state.screen]}
-						</Col>	
-					</Row>	
-				</div>
-			</Panel>	
+			<div>
+				<Panel className="encompass" >
+					<div className="header">
+						<Row style={{textAlign:"center"}}>
+							<Col lg={1} md={12} xs={12} className="bottom-column">
+								<img style={{width: "100px"}}id="pen" src="Pictures/pen.png"></img>
+							</Col>
+							<Col lg={11} md={12} xs={12} className="bottom-column">
+								<Row>	
+									<Col className="banner" lg={12} md={12} sm={12} xs={12}>
+										<h1 ><b id="headTitle">McGill Journal of Medecine</b></h1>
+									</Col>
+									<Col lg={12} md={12} xs={12}>	
+										<Navbar toggleNavKey={0} >
+									    <NavBrand><a href="#main" onClick = {this.handleScreen.bind(null,'main')}>Home</a></NavBrand>
+									    <Nav className="nana" eventKey={0}>
+									      <NavItem eventKey={1} href="#news" onClick = {this.handleScreen.bind(null,'news')}>News</NavItem>
+									      <NavItem eventKey={2} href="#submissions" onClick = {this.handleScreen.bind(null,'submissions')}>Submissions</NavItem>
+									      <NavDropdown eventKey={3} title="Archives" id="basic-nav-dropdown">
+									        <MenuItem eventKey="1" href="#archives" onClick = {this.handleScreen.bind(null,'archives')}>Old Stuff</MenuItem>
+									        <MenuItem eventKey="2">Really Old Stuff</MenuItem>
+									        <MenuItem eventKey="3">A Canadian discovered insulin</MenuItem>
+									        <MenuItem divider />
+									        <MenuItem eventKey="4">All</MenuItem>
+									      </NavDropdown>	
+									      <NavItem eventKey={2} href="#aboutUs" onClick = {this.handleScreen.bind(null,'aboutUs')}>About Us</NavItem>
+									    </Nav>
+									  </Navbar>
+									</Col>	
+								</Row>	
+							</Col>
+						</Row>
+						<Row className="main">
+							<Col lg={12} md={12} xs={12}>
+								{screen [this.state.screen]}
+							</Col>	
+						</Row>	
+					</div>
+				</Panel>	
+				<Panel className="footer">
+					<p>All Copyrights goes to McGill Journal of Medicine ©</p>
+				</Panel>
+			</div>	
 			)
 	}
 
