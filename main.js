@@ -94,7 +94,8 @@ var Home=React.createClass({
 		Nav=B.Nav,
 		NavItem=B.NavItem,
 		NavDropdown=B.NavDropdown,
-		MenuItem=B.MenuItem;
+		MenuItem=B.MenuItem,
+		Jumbotron=B.Jumbotron;
 
 		var screen={
 			main: (
@@ -132,7 +133,7 @@ var Home=React.createClass({
 // 									<Tab eventKey={5} title={<div className="tab">About Us</div>}>{screen [this.state.screen]}</Tab>
 // 								</Tabs>
 		return (
-			<Panel className="encompass">
+			<Panel className="encompass" footer="All Copyrights goes to McGill Journal of Medicine ©">
 				<div className="header">
 					<Row style={{textAlign:"center"}}>
 						<Col lg={1} md={12} xs={12} className="bottom-column">
@@ -141,12 +142,12 @@ var Home=React.createClass({
 						<Col lg={11} md={12} xs={12} className="bottom-column">
 							<Row>	
 								<Col className="banner" lg={12} md={12} sm={12} xs={12}>
-									<h1>McGill Journal of Medecine</h1>
+									<h1 ><b id="headTitle">McGill Journal of Medecine</b></h1>
 								</Col>
 								<Col lg={12} md={12} xs={12}>	
 									<Navbar toggleNavKey={0} >
-								    <NavBrand><a href="#main" onClick = {this.handleScreen.bind(null,'main')}>McGill Journal of Medecine</a></NavBrand>
-								    <Nav eventKey={0}>
+								    <NavBrand><a href="#main" onClick = {this.handleScreen.bind(null,'main')}>Home</a></NavBrand>
+								    <Nav className="nana" eventKey={0}>
 								      <NavItem eventKey={1} href="#news" onClick = {this.handleScreen.bind(null,'news')}>News</NavItem>
 								      <NavItem eventKey={2} href="#submissions" onClick = {this.handleScreen.bind(null,'submissions')}>Submissions</NavItem>
 								      <NavDropdown eventKey={3} title="Archives" id="basic-nav-dropdown">
