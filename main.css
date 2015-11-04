@@ -86,6 +86,7 @@ body{
   -o-background-size: 10%;
   background-size: 10%;
 	/*background-margin: 25%;*/
+	height: 100%
 }
 
 .bottom-column.col-lg-1.col-md-12.col-xs-12{
@@ -100,6 +101,9 @@ body{
 	margin:0;
 	padding: 0;
 }
+.container{
+	padding-left: 0;
+}
 img#pen {
 }
 .banner{
@@ -107,17 +111,41 @@ img#pen {
 }
 
 h1#title{
-	font-family: "Times New Roman";
-	font-size: 24px;
+	font-family: "Helvetica";
+	font-size: 2.4em;
+	color: #E10018;
 }
+
+.nana{
+	font-size: 2em;
+}
+a.navbar-brand{
+	font-size:2em;
+}
+
+em{
+	color:darkgrey;
+}
+
+.panel-footer{
+	text-align: center;
+}
+b#headTitle{
+	font-family: "Helvetica";
+	font-size: 2em;
+	color: #E10018;
+	text-align: center;
+}
+
 nav.navbar.navbar-default{
 	/*margin-right: 13.5%;*/
 	margin-bottom: 0;
 	float: left;
-
+	background-color: white;
+	border-color: white;
 }
 .tab{
-	font-family: "Times New Roman";
+	font-family: "Helvetica";
 	font-size: 24px;
 	color: black;
 }
@@ -126,15 +154,11 @@ i{
 	color: darkgrey;
 }
 
-em{
-	color:darkgrey;
-}
-
 .carousel img{
 	height: 523px;
 	width: 928px;
 }
 
 h1 {
-	font-family: "Times New Roman";
+	font-family: "Helvetica";
 }
