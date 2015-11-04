@@ -156,7 +156,7 @@ var Home=React.createClass({
 								        <MenuItem eventKey="3">A Canadian discovered insulin</MenuItem>
 								        <MenuItem divider />
 								        <MenuItem eventKey="4">All</MenuItem>
-								      </NavDropdown>
+								      </NavDropdown>	
 								      <NavItem eventKey={2} href="#aboutUs" onClick = {this.handleScreen.bind(null,'aboutUs')}>About Us</NavItem>
 								    </Nav>
 								  </Navbar>
