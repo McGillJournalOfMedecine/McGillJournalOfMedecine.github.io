@@ -202,10 +202,10 @@ var Home=React.createClass({
 									<Col className="banner" lg={12} md={12} sm={12} xs={12}>
 										<h1 ><b id="headTitle">McGill Journal of Medecine</b></h1>
 									</Col>
-									<Col lg={12} md={12} xs={12}>	
+									<Col className="menuBar" lg={12} md={12} xs={12}>	
 										<Navbar toggleNavKey={0} >
-											<NavBrand><a href="#main" onClick = {this.handleScreen.bind(null,'main')}>Home</a></NavBrand>
 											<Nav className="nana" eventKey={0}>
+												<NavItem eventKey={0} id="homeButton" href="#main" onClick = {this.handleScreen.bind(null,'main')}>Home</NavItem>
 												<NavItem eventKey={1} href="#latestIssue" onClick = {this.handleScreen.bind(null,'latestIssue')}>Latest Issue</NavItem>
 												<NavItem eventKey={2} href="#news" onClick = {this.handleScreen.bind(null,'news')}>News</NavItem>
 												<NavItem eventKey={3} href="#archives" onClick = {this.handleScreen.bind(null,'archives')}>Archives</NavItem>
@@ -232,10 +232,10 @@ var Home=React.createClass({
 				</Panel>	
 				<Panel className="footer">
 					<Row style={{textAlign:"center"}}>
-						<Col style={{textAlign:"right"}} lg={6} md={6} xs={12} >
+						<Col id="McGill"  lg={6} md={6} xs={12} >
 							<img id="mcgillLogo" src="Pictures/McGill.png"></img>
 						</Col>
-						<Col style={{textAlign:"left"}} lg={6} md={6} xs={12}>
+						<Col id="McGillMed" lg={6} md={6} xs={12}>
 							<img id="mcgillMed" src="Pictures/McGillMed.png"></img>
 						</Col>
 					</Row>

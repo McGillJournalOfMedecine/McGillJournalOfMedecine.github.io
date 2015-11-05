@@ -25,6 +25,14 @@ body {
   min-width: 100%;
 
 }
+#McGill{
+	text-align: right;
+}
+
+#McGillMed{
+	text-align: left;
+}
+
 #content,.encompass.panel.panel-default{
 	height:100%;
 	width: 100%;
@@ -59,10 +67,29 @@ body {
 }
 @media(max-width: 767px){
 	img#banner {
-	display: none;
-}	
-
+		display: none;
+	}	
+	.banner.col-lg-12.col-md-12.col-sm-12.col-xs-12{
+		text-align: center;
+	}
+	nav.navbar.navbar-default{
+		float:none;
+	}
 }
+
+@media(max-width: 992px){
+	img#banner {
+		display: none;
+	}	
+	#McGill{
+		text-align: center;
+	}
+
+	#McGillMed{
+		text-align: center;
+	}
+}
+
 
 .navbar-collapse {
   overflow: hidden;
@@ -138,9 +165,18 @@ body{
 	padding: 0;
 
 }
+.banner.col-lg-12.col-md-12.col-sm-12.col-xs-12{
+	padding-left: 30px
+}
+nav.nana.navbar-collapse.collapse{
+	padding-left: 0px;
+}
 .container{
 	padding-left: 0;
 
+}
+a#homeButton{
+	padding-left: 0;
 }
 img#pen {
 }
