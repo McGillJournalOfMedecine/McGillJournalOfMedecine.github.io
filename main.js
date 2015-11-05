@@ -231,6 +231,14 @@ var Home=React.createClass({
 					</div>
 				</Panel>	
 				<Panel className="footer">
+					<Row style={{textAlign:"center"}}>
+						<Col style={{textAlign:"right"}} lg={6} md={6} xs={12} >
+							<img id="mcgillLogo" src="Pictures/McGill.png"></img>
+						</Col>
+						<Col style={{textAlign:"left"}} lg={6} md={6} xs={12}>
+							<img id="mcgillMed" src="Pictures/McGillMed.png"></img>
+						</Col>
+					</Row>
 					<p>All Copyrights goes to McGill Journal of Medicine ©</p>
 				</Panel>
 			</div>	
