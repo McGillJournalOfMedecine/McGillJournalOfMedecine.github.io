@@ -134,9 +134,64 @@ var Home=React.createClass({
 		var staff=(this.organizeGroups(STAFF, 2)).map(function(el,i) {return <Row key={i} className="staffRow">{el}</Row>})
 		var screen={
 			main: (
-				<Carousel>
+				<div>
+					<Carousel>
 						{CAROUSEL}
-				</Carousel>),
+					</Carousel>
+					<br/>
+					<Row>
+						<Col style={{textAlign: "center"}} md={4}>
+							<button type="button" className="btn btn-default">
+								<br/>
+								<Row>
+									<Col style={{textAlign: "center"}} md={12} className="button-description">
+										explore current and <br/> past published articles
+									</Col>
+								</Row>
+								<Row>
+									<Col style={{textAlign: "center"}} md={12} className="button-title">
+										READ
+									</Col>
+								</Row>
+								<br/>
+							</button>
+						</Col>
+						<Col style={{textAlign: "center"}} md={4}>
+							<button type="button" className="btn btn-default">
+								<br/>
+								<Row>
+									<Col style={{textAlign: "center"}} md={12} className="button-description">
+										submission and <br/> recruitment deadlines
+									</Col>
+								</Row>
+								<Row>
+									<Col style={{textAlign: "center"}} md={12} className="button-title">
+										ANNOUNCEMENTS
+									</Col>
+								</Row>
+								<br/>
+							</button>
+						</Col>
+						<Col style={{textAlign: "center"}} md={4}>
+							<button type="button" className="btn btn-default">
+								<br/>
+								<Row>
+									<Col style={{textAlign: "center"}} md={12} className="button-description">
+										scope, format and <br/> submitting instructions
+									</Col>
+								</Row>
+								<Row>
+									<Col style={{textAlign: "center"}} md={12} className="button-title">
+										FOR AUTHORS
+									</Col>
+								</Row>
+								<br/>
+							</button>
+						</Col>
+					</Row>
+				</div>
+				),
+
 			news: (
 				<div>
 					<h1> Latest News </h1>
