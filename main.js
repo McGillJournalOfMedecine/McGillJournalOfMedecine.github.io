@@ -145,7 +145,7 @@ var Home=React.createClass({
 							<a type="button" className="btn btn-default" href="#news" onClick = {this.handleScreen.bind(null,'news')}>
 								<Row>
 									<Col md={12} className="button-logo">
-										<img className="center-block" src="../pictures/announcement.png" alt="Announcement Icon" height="90" width="90"></img>
+										<img className="center-block" src="Pictures/announcement.png" alt="Announcement Icon" height="90" width="90"></img>
 									</Col>
 								</Row>
 								<Row>
@@ -164,7 +164,7 @@ var Home=React.createClass({
 							<a type="button" className="btn btn-default" href="">
 								<Row>
 									<Col md={12} className="button-logo">
-										<img className="center-block" src="../pictures/coffee.png" alt="Coffee Icon" height="90" width="90"></img>
+										<img className="center-block" src="Pictures/coffee.png" alt="Coffee Icon" height="90" width="90"></img>
 									</Col>
 								</Row>
 								<Row>
@@ -183,7 +183,7 @@ var Home=React.createClass({
 							<a type="button" className="btn btn-default" href="ftp://www.med.mcgill.ca/MJM/Documents/MJM_SubmissionGuidelines_2015.pdf">
 								<Row>
 									<Col md={12} className="button-logo">
-										<img className="center-block" src="../pictures/file.png" alt="File Submission Icon" height="90" width="90"></img>
+										<img className="center-block" src="Pictures/file.png" alt="File Submission Icon" height="90" width="90"></img>
 									</Col>
 								</Row>
 								<Row>
