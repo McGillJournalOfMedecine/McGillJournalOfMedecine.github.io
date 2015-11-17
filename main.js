@@ -139,26 +139,15 @@ var Home=React.createClass({
 						{CAROUSEL}
 					</Carousel>
 					<br/>
+					<br/>
 					<Row>
-						<Col style={{textAlign: "center"}} md={4}>
-							<button type="button" className="btn btn-default">
-								<br/>
+						<Col style={{textAlign: "right"}} md={4}>
+							<a type="button" className="btn btn-default" href="#news" onClick = {this.handleScreen.bind(null,'news')}>
 								<Row>
-									<Col style={{textAlign: "center"}} md={12} className="button-description">
-										explore current and <br/> past published articles
+									<Col md={12} className="button-logo">
+										<img className="center-block" src="pictures/announcement.png" alt="Announcement Icon" height="90" width="90"></img>
 									</Col>
 								</Row>
-								<Row>
-									<Col style={{textAlign: "center"}} md={12} className="button-title">
-										READ
-									</Col>
-								</Row>
-								<br/>
-							</button>
-						</Col>
-						<Col style={{textAlign: "center"}} md={4}>
-							<button type="button" className="btn btn-default">
-								<br/>
 								<Row>
 									<Col style={{textAlign: "center"}} md={12} className="button-description">
 										submission and <br/> recruitment deadlines
@@ -169,12 +158,34 @@ var Home=React.createClass({
 										ANNOUNCEMENTS
 									</Col>
 								</Row>
-								<br/>
-							</button>
+							</a>
 						</Col>
 						<Col style={{textAlign: "center"}} md={4}>
-							<button type="button" className="btn btn-default">
-								<br/>
+							<a type="button" className="btn btn-default" href="">
+								<Row>
+									<Col md={12} className="button-logo">
+										<img className="center-block" src="pictures/coffee.png" alt="Coffee Icon" height="90" width="90"></img>
+									</Col>
+								</Row>
+								<Row>
+									<Col style={{textAlign: "center"}} md={12} className="button-description">
+										explore current and <br/> past published articles
+									</Col>
+								</Row>
+								<Row>
+									<Col style={{textAlign: "center"}} md={12} className="button-title">
+										READ
+									</Col>
+								</Row>
+							</a>
+						</Col>
+						<Col style={{textAlign: "left"}} md={4}>
+							<a type="button" className="btn btn-default" href="ftp://www.med.mcgill.ca/MJM/Documents/MJM_SubmissionGuidelines_2015.pdf">
+								<Row>
+									<Col md={12} className="button-logo">
+										<img className="center-block" src="pictures/file.png" alt="File Submission Icon" height="90" width="90"></img>
+									</Col>
+								</Row>
 								<Row>
 									<Col style={{textAlign: "center"}} md={12} className="button-description">
 										scope, format and <br/> submitting instructions
@@ -185,8 +196,7 @@ var Home=React.createClass({
 										FOR AUTHORS
 									</Col>
 								</Row>
-								<br/>
-							</button>
+							</a>
 						</Col>
 					</Row>
 				</div>
@@ -296,9 +306,9 @@ var Home=React.createClass({
 															<div id="McGill-name">
 																	McGill
 															</div>		
-															<br/>
 															<div className="banner">
 																<h1 ><b id="headTitle">Journal of Medicine</b></h1>
+																<br/>
 															</div>
 										    </NavBrand>
 											</Nav>		
@@ -331,7 +341,7 @@ var Home=React.createClass({
 							<img id="mcgillMed" src="Pictures/McGillMed.png"></img>
 						</Col>
 					</Row>
-					<p>All Copyrights goes to McGill Journal of Medicine ©</p>
+					<p>Copyright © McGill Journal Of Medecine 2015. All Rights Reserved.</p>
 				</Panel>
 			</div>	
 			)
