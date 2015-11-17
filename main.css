@@ -257,6 +257,7 @@ img#pen {
    width:98%;
 }
 li#navBut > a, a#basic-nav-dropdown{
+	font-size: 16px; /*!!! CHECK IF THERE'S A BETTER WAY TO DO THIS !!!*/
 	color: #E10018;
 }
 h1#title{
@@ -299,7 +300,7 @@ nav.navbar.navbar-default{
 	float:left;
 	text-align: left;
 	color: #E10018;
-	font-size: 60px;
+	font-size: 40px;
 }
 i{
 	color: darkgrey;
@@ -315,4 +316,14 @@ h1 {
 	font-family: "Helvetica";
 	font-size: 26px;
 	white-space: nowrap;
+}
+
+.button-description{
+	font-family: "Helvetica";
+}
+
+div.button-title.col-md-12{
+	font-family: "Helvetica";
+	color: #E10018;
+	font-weight: bold;
 }
