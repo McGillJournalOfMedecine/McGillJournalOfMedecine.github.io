@@ -17,7 +17,7 @@ $.getJSON( "Data/news.json"+'?'+milliseconds, { cache: false},function() {
 })
 	.done(function( data ) {
 			$.each( data, function( key, val ) {
-				 NEWS.push([<h1 id="title">{key}</h1>, <p>{val[2]}</p>, <i>Posted by {val[0]}</i>,<em> on {val[1]}</em>])
+				 NEWS.push([<h2 id="title">{key}</h2>, <p>{val[2]}</p>, <i>Posted by {val[0]}</i>,<em> on {val[1]}</em>])
 			});
 		})
 	.fail(function() {
@@ -139,25 +139,41 @@ var Home=React.createClass({
 				</Carousel>),
 			news: (
 				<div>
-					<h1> Latest News </h1>
+					<Row>
+						<Col className="pageTitle" lg={12} md={12} sm={12} xs={12}>	
+							<h1 > Latest News </h1>
+						</Col>
+					</Row>
 					{NEWS}
 				</div>
 				),
 			submissions: (
 				<div>
-					<h1> Contact Our Editors </h1>
+					<Row>
+						<Col className="pageTitle" lg={12} md={12} sm={12} xs={12}>	
+							<h1 > Contact Our Editors </h1>
+						</Col>
+					</Row>
 					<a href="mailto:chuong.francois.trinh@gmail.com">Kanye West</a>
 				</div>
 				),
 			archives: (
 				<div>
-					<h1> Archives </h1>
+					<Row>
+						<Col className="pageTitle" lg={12} md={12} sm={12} xs={12}>	
+							<h1 > Archives </h1>
+						</Col>
+					</Row>
 					Not finished.
 				</div>
 				),
 			aboutUs: (
 				<div>
-					<h1> About Us </h1>
+					<Row>
+						<Col className="pageTitle" lg={12} md={12} sm={12} xs={12}>	
+							<h1 > About Us </h1>
+						</Col>
+					</Row>
 					<p>The McGill Journal of Medicine (MJM) is a scholarly scientific journal providing an international forum for health sciences university students to publish a variety of literature and artwork. Established in May 1994, MJM is published and produced entirely by medical students and graduate students in the Faculty of Medicine at McGill and is driven by principles of student excellence and education. At the outset the MJM was the first student-run medical journal devoted to publish the original research of students exclusively, on an international scale.</p>
 					<p>This journal focuses on the disciplines of clinical medical, biomedical sciences as well as issues surrounding medical education and medical ethics. </p>
 					<h2>Executive Team</h2>
@@ -166,19 +182,31 @@ var Home=React.createClass({
 				),
 			latestIssue: (
 				<div>
-					<h1>Latest Issue</h1>
+					<Row>
+						<Col className="pageTitle" lg={12} md={12} sm={12} xs={12}>	
+							<h1 >Latest Issue</h1>
+						</Col>
+					</Row>
 					Not finished.
 				</div>
 				),
 			contactUs: (
 				<div>
-					<h1> Contact Us</h1>
+					<Row>
+						<Col className="pageTitle" lg={12} md={12} sm={12} xs={12}>	
+							<h1 > Contact Us</h1>
+						</Col>
+					</Row>
 					Not finished.
 				</div>
 				),
 			represent: (
 				<div>
-					<h1>Represent the MJM at your university!</h1>
+					<Row>
+						<Col className="pageTitle" lg={12} md={12} sm={12} xs={12}>	
+							<h1 >Represent the MJM at your university!</h1>
+						</Col>
+					</Row>
 					<p>The MJM’s editorial staff is comprised of students in the Faculty of Medicine at McGill University. Our goal is to publish high-quality work composed by students around the world. If you would like to represent the MJM at your university and help us promote opportunities for students to publish and facilitate discussion between students on the topic of medicine, join our volunteer staff today! </p>
 				</div>
 				),
