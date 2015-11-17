@@ -229,8 +229,17 @@ var Home=React.createClass({
 							<h1 > About Us </h1>
 						</Col>
 					</Row>
-					<p>The McGill Journal of Medicine (MJM) is a scholarly scientific journal providing an international forum for health sciences university students to publish a variety of literature and artwork. Established in May 1994, MJM is published and produced entirely by medical students and graduate students in the Faculty of Medicine at McGill and is driven by principles of student excellence and education. At the outset the MJM was the first student-run medical journal devoted to publish the original research of students exclusively, on an international scale.</p>
-					<p>This journal focuses on the disciplines of clinical medical, biomedical sciences as well as issues surrounding medical education and medical ethics. </p>
+					<br/>
+					<Row>
+						<Col lg={12} md={12} sm={12} xs={12}>	
+							<p>The McGill Journal of Medicine (MJM) is a scholarly scientific journal providing an international forum for health sciences university students to publish a variety of literature and artwork. Established in May 1994, MJM is published and produced entirely by medical students and graduate students in the Faculty of Medicine at McGill and is driven by principles of student excellence and education. At the outset the MJM was the first student-run medical journal devoted to publish the original research of students exclusively, on an international scale.</p>
+						</Col>
+					</Row>
+					<Row>
+						<Col lg={12} md={12} sm={12} xs={12}>	
+							<p>This journal focuses on the disciplines of clinical medical, biomedical sciences as well as issues surrounding medical education and medical ethics. </p>
+						</Col>
+					</Row>	
 					<h2>Executive Team</h2>
 					{staff}
 				</div>
