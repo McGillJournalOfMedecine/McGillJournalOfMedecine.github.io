@@ -7,7 +7,11 @@
 	/*margin-left: 2%;
 	margin-right: 2%;*/
 }
-
+b#headTitle{
+	font-family: "Helvetica";
+	color: #E10018;
+	text-align: center;
+}
 @media (min-width: 1441px) {
 	.main{
 		margin-left: 24%;
@@ -15,6 +19,91 @@
 
 	}
 }
+@media (min-width: 1201px){
+	b#headTitle{
+		font-size: 2em;
+	}
+	nav.navbar.navbar-default.navbar-fixed-top{
+		height: 105px;
+	}
+}
+@media (max-width: 1200px){
+	b#headTitle{
+		font-size: 1.4em;
+	}
+	nav.navbar.navbar-default.navbar-fixed-top{
+		height: 89px;
+	}
+}
+
+@media(max-width: 992px){
+		b#headTitle{
+		font-size: 1em;
+	}
+	li#navBut > a, a#basic-nav-dropdown{
+		font-size: 20px;
+	}
+	img#banner {
+		display: none;
+	}	
+	#McGill{
+		text-align: center;
+	}
+
+	#McGillMed{
+		text-align: center;
+	}
+
+}
+@media (min-width: 768px){
+	.bottom-column{
+	    float: none;
+	    display: table-cell;
+	    vertical-align: bottom;
+
+	}
+	img#banner {
+		min-width: 800px;
+	}
+
+}
+
+@media(max-width: 767px){
+	img#banner {
+		display: none;
+	}	
+	.banner.col-lg-12.col-md-12.col-sm-12.col-xs-12{
+		text-align: center;
+	}
+	nav.navbar.navbar-default{
+		float:none;
+	}
+	#McGill-name{
+		display: none;
+	}
+	.banner{
+		display: none;
+	}
+	nav.navbar.navbar-default.navbar-fixed-top{
+		height: 15px;
+	}
+	ul.nav.navbar-nav.pull-right{
+		float:none !important;
+		background: white;
+	}
+	ul.nav.navbar-nav{
+		margin-bottom: 0px;
+		margin-top: 0px;
+	}
+	.navbar-header{
+		height:0px;
+	}
+
+}
+
+
+
+
 html{
   height: 100%;
   width: 100%;
@@ -36,6 +125,7 @@ body {
 #content,.encompass.panel.panel-default{
 	height:100%;
 	width: 100%;
+	padding-top: 65px;
 	/*border-style: solid;
     border-width: 1px;*/
 
@@ -45,51 +135,19 @@ body {
 	width: 100%;
 
 }
+
+.panel-default{
+	border-color:white;
+}
 .footer{
 	text-align: center;
 	padding-bottom: 0;
 	margin-bottom: 0;
 	color:grey;
-	background-color: #cccccc;
+	background-color: white;
 
 
 }
-@media (min-width: 768px){
-	.bottom-column{
-	    float: none;
-	    display: table-cell;
-	    vertical-align: bottom;
-
-	}
-	img#banner {
-		min-width: 800px;
-	}
-}
-@media(max-width: 767px){
-	img#banner {
-		display: none;
-	}	
-	.banner.col-lg-12.col-md-12.col-sm-12.col-xs-12{
-		text-align: center;
-	}
-	nav.navbar.navbar-default{
-		float:none;
-	}
-}
-
-@media(max-width: 992px){
-	img#banner {
-		display: none;
-	}	
-	#McGill{
-		text-align: center;
-	}
-
-	#McGillMed{
-		text-align: center;
-	}
-}
-
 
 .navbar-collapse {
   overflow: hidden;
@@ -169,7 +227,8 @@ body{
 	padding-left: 30px
 }
 nav.nana.navbar-collapse.collapse{
-	padding-left: 0px;
+	padding-right: 0px;
+	color: #E10018;
 }
 .container{
 	padding-left: 0;
@@ -186,7 +245,9 @@ img#pen {
     border-width: 1px;*/
    width:98%;
 }
-
+li#navBut > a, a#basic-nav-dropdown{
+	color: #E10018;
+}
 h1#title{
 	font-family: "Helvetica";
 	font-size: 2.4em;
@@ -207,12 +268,7 @@ em{
 .panel-footer{
 	text-align: center;
 }
-b#headTitle{
-	font-family: "Helvetica";
-	font-size: 2em;
-	color: #E10018;
-	text-align: center;
-}
+
 div#headerText{
 	width:98%;
 }
@@ -228,9 +284,15 @@ nav.navbar.navbar-default{
 	font-size: 24px;
 	color: black;
 }
-
+#McGill-name{
+	float:left;
+	text-align: left;
+	color: #E10018;
+	font-size: 40px;
+}
 i{
 	color: darkgrey;
+
 }
 
 .carousel img{
@@ -240,4 +302,6 @@ i{
 
 h1 {
 	font-family: "Helvetica";
+	font-size: 26px;
+	white-space: nowrap;
 }

@@ -56,7 +56,7 @@ var Home=React.createClass({
 		this.setState({screen:path})
 		// console.log(/.+?(?=\#)/.exec(url))
 		// this.setState({})
-		
+		$( "body" ).css({ 'background': 'none' });
 		var B=ReactBootstrap,
 		CarouselItem=B.CarouselItem,
 		Col=B.Col;
@@ -129,7 +129,8 @@ var Home=React.createClass({
 		NavItem=B.NavItem,
 		NavDropdown=B.NavDropdown,
 		MenuItem=B.MenuItem,
-		Jumbotron=B.Jumbotron;
+		Jumbotron=B.Jumbotron,
+		Navbar=B.Navbar;
 		var staff=(this.organizeGroups(STAFF, 2)).map(function(el,i) {return <Row key={i} className="staffRow">{el}</Row>})
 		var screen={
 			main: (
@@ -189,39 +190,38 @@ var Home=React.createClass({
 // 									<Tab eventKey={4} title={<div className="tab">Archives</div>}>{screen [this.state.screen]}</Tab>
 // 									<Tab eventKey={5} title={<div className="tab">About Us</div>}>{screen [this.state.screen]}</Tab>
 // 								</Tabs>
+								// <img style={{width: "100px"}}id="pen" src="Pictures/pen.png"></img>
 		return (
 			<div>
 				<Panel className="encompass" >
 					<div className="header">
 						<Row style={{textAlign:"center"}}>
-							<Col lg={1} md={12} xs={12} className="bottom-column">
-								<img style={{width: "100px"}}id="pen" src="Pictures/pen.png"></img>
-							</Col>
-							<Col lg={11} md={12} xs={12} className="bottom-column">
 								<Row id ="headerText">	
-									<Col className="banner" lg={12} md={12} sm={12} xs={12}>
-										<h1 ><b id="headTitle">McGill Journal of Medecine</b></h1>
-									</Col>
 									<Col className="menuBar" lg={12} md={12} xs={12}>	
-										<Navbar toggleNavKey={0} >
-											<Nav className="nana" eventKey={0}>
-												<NavItem eventKey={0} id="homeButton" href="#main" onClick = {this.handleScreen.bind(null,'main')}>Home</NavItem>
-												<NavItem eventKey={1} href="#latestIssue" onClick = {this.handleScreen.bind(null,'latestIssue')}>Latest Issue</NavItem>
-												<NavItem eventKey={2} href="#news" onClick = {this.handleScreen.bind(null,'news')}>News</NavItem>
-												<NavItem eventKey={3} href="#archives" onClick = {this.handleScreen.bind(null,'archives')}>Archives</NavItem>
-												<NavItem eventKey={4} href="#aboutUs" onClick = {this.handleScreen.bind(null,'aboutUs')}>About Us</NavItem>
-												<NavItem eventKey={5} href="#submissions" onClick = {this.handleScreen.bind(null,'submissions')}>Submissions</NavItem>
-												<NavDropdown eventKey={6} title="Contact" id="basic-nav-dropdown">
+										<Navbar fixedTop toggleNavKey={0} >
+											<Nav>
+										    <NavBrand>
+															<div id="McGill-name">
+																	McGill
+															</div>		
+															<br/>
+															<div className="banner">
+																<h1 ><b id="headTitle">Journal of Medicine</b></h1>
+															</div>
+										    </NavBrand>
+											</Nav>		
+											<Nav pullRight className="nana" eventKey={0}>
+												<NavItem id="navBut" eventKey={0} href="#main" onClick = {this.handleScreen.bind(null,'main')}>HOME</NavItem>
+												<NavItem id="navBut" eventKey={2} href="#news" onClick = {this.handleScreen.bind(null,'news')}>NEWS</NavItem>
+												<NavItem id="navBut" eventKey={4} href="#aboutUs" onClick = {this.handleScreen.bind(null,'aboutUs')}>ABOUT US</NavItem>
+												<NavDropdown eventKey={6} title="CONTACT" id="basic-nav-dropdown">
 													<MenuItem eventKey="1" href="#contactUs" onClick = {this.handleScreen.bind(null,'contactUs')}>Contact Us</MenuItem>
 													<MenuItem eventKey="2" href="#represent" onClick = {this.handleScreen.bind(null,'represent')}>Become a Representative</MenuItem>
-													<MenuItem divider />
-													<MenuItem eventKey="4">All</MenuItem>
 												</NavDropdown>	
 											</Nav>
 										</Navbar>
 									</Col>	
 								</Row>	
-							</Col>
 						</Row>
 						<Row className="main">
 							<Col lg={12} md={12} xs={12}>
