@@ -140,48 +140,48 @@ var Home=React.createClass({
 					</Carousel>
 					<br/>
 					<Row>
-						<Col style={{textAlign: "center"}} md={4}>
+						<Col style={{textAlign: "center"}} lg={4} md={4} sm={12} >
 							<button type="button" className="btn btn-default">
 								<br/>
 								<Row>
-									<Col style={{textAlign: "center"}} md={12} className="button-description">
+									<Col style={{textAlign: "center"}} lg={12} md={12} sm={4} className="button-description">
 										explore current and <br/> past published articles
 									</Col>
 								</Row>
 								<Row>
-									<Col style={{textAlign: "center"}} md={12} className="button-title">
+									<Col style={{textAlign: "center"}} lg={12} md={12} sm={4} className="button-title">
 										READ
 									</Col>
 								</Row>
 								<br/>
 							</button>
 						</Col>
-						<Col style={{textAlign: "center"}} md={4}>
+						<Col style={{textAlign: "center"}} lg={4} md={4} sm={12}>
 							<button type="button" className="btn btn-default">
 								<br/>
 								<Row>
-									<Col style={{textAlign: "center"}} md={12} className="button-description">
+									<Col style={{textAlign: "center"}} lg={12} md={12} sm={12} className="button-description">
 										submission and <br/> recruitment deadlines
 									</Col>
 								</Row>
 								<Row>
-									<Col style={{textAlign: "center"}} md={12} className="button-title">
+									<Col style={{textAlign: "center"}} lg={12}md={12} sm={12}className="button-title">
 										ANNOUNCEMENTS
 									</Col>
 								</Row>
 								<br/>
 							</button>
 						</Col>
-						<Col style={{textAlign: "center"}} md={4}>
+						<Col style={{textAlign: "center"}} lg={4} md={4} sm={12}>
 							<button type="button" className="btn btn-default">
 								<br/>
 								<Row>
-									<Col style={{textAlign: "center"}} md={12} className="button-description">
+									<Col style={{textAlign: "center"}} lg={4} md={12} className="button-description">
 										scope, format and <br/> submitting instructions
 									</Col>
 								</Row>
 								<Row>
-									<Col style={{textAlign: "center"}} md={12} className="button-title">
+									<Col style={{textAlign: "center"}} lg={4} md={12} className="button-title">
 										FOR AUTHORS
 									</Col>
 								</Row>
