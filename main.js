@@ -1,6 +1,7 @@
 var NEWS=[];
 var CAROUSEL=[];
 var STAFF=[];
+var ARTICLES=[];
 var today=new Date();
 var milliseconds=today.getMilliseconds();
 $(document).ready(function() {
@@ -13,8 +14,7 @@ $.ajaxSetup({
 //loads react components into the aray NEWS. The news page will display the contents of the array
 
 // $('body').css('background-image', 'Pictures/pen.png)');
-$.getJSON( "Data/news.json"+'?'+milliseconds, { cache: false},function() {
-})
+$.getJSON( "Data/news.json"+'?'+milliseconds, { cache: false},function() {})
 	.done(function( data ) {
 			$.each( data, function( key, val ) {
 				 NEWS.push([<h2 id="title">{key}</h2>, <p>{val[2]}</p>, <i>Posted by {val[0]}</i>,<em> on {val[1]}</em>])
@@ -26,7 +26,43 @@ $.getJSON( "Data/news.json"+'?'+milliseconds, { cache: false},function() {
 	.always(function() {
 	});
 
+$.getJSON( "Data/articles.json"+'?'+milliseconds, {cache: false},function() {})
+		.done(function( data ) {
+				$.each( data, function( key, val ) {
+					var temp="../Articles/"+val[0]
+					ARTICLES.push([
+						<a type="button" className="btn btn-default" href={val[3]}>
+							<h3 id="title">{key}</h3>
+							<p>{val[0]}</p> 
+							<i>Posted by {val[2]}</i>
+							<em> on {val[1]}</em>
+						</a>
+						])
+				});
 
+			})
+		.fail(function(e) {
+			console.log(e)
+			console.log( "erroring" );
+		})
+		.always(function() {
+			console.log('test')
+		});
+// var lastScrollTop = 0;
+
+// $(window).scroll(function () {
+
+// var st = $(this).scrollTop();
+//         if (st < lastScrollTop){
+//             $('nav.navbar.navbar-default.navbar-fixed-top').css({'padding-top':'25px','height':'100px'});
+//             $('nav ').slideDown();
+
+//         } else {
+//           $('nav.navbar.navbar-default.navbar-fixed-top').css({'padding-top':'0px'});
+//           $('nav ').slideUp();
+//         }
+//         lastScrollTop = st;
+//   })
 
 var Home=React.createClass({
 	getInitialState: function (){
@@ -48,6 +84,42 @@ var Home=React.createClass({
 			this.setState(state)
 			}.bind(this);
 	},
+	organizeGroups: function(list, rowLength){
+		var b=[];var c=[];
+		for (var i=1; i<= list.length;i++){
+			b=b.concat(list[i-1])
+			if(i%rowLength === 0||i === list.length){
+				c=c.concat([b]);  
+				b=[];
+			}
+		}
+		return c;
+	},
+	organize: function () {
+		var B=ReactBootstrap;
+		var Row=B.Row,
+			Col=B.Col;
+		var len=ARTICLES.length;
+
+		var articles=this.organizeGroups(ARTICLES,4);
+		return (
+			<div>
+				<Row><Col lg={12} md={12} xs={12}><h2>There are {len} articles</h2></Col></Row>
+				{articles.map(
+					function (el, i) {
+						return <Row key={i}>{el.map(
+							function (e, i) {
+								return <Col style={{textAlign: "center","padding": "5px"}} key={i} xs={12} md={6} lg={4}>{e}
+								</Col>
+							}
+						)}</Row>
+					}
+				)}
+			</div>
+
+		)
+	},
+
 	//executes before anything appears on the screen. Looks at the URL and changes the state depending on the hashtag.
 	componentDidMount: function() {
 		var url = window.location.href.split("/")
@@ -111,26 +183,25 @@ var Home=React.createClass({
 				b = [];
 			}
 		}
-		console.log(c)
 		return c;
 	},
 	render: function (){
 		var B=ReactBootstrap,
-		Carousel=B.Carousel,
-		CarouselItem=B.CarouselItem,
-		Col=B.Col,
-		Row=B.Row,
-		Tabs=B.Tabs,
-		Tab=B.Tab,
-		Panel=B.Panel,
-		Navbar=B.Navbar,
-		NavBrand=B.NavBrand,
-		Nav=B.Nav,
-		NavItem=B.NavItem,
-		NavDropdown=B.NavDropdown,
-		MenuItem=B.MenuItem,
-		Jumbotron=B.Jumbotron,
-		Navbar=B.Navbar;
+			Carousel=B.Carousel,
+			CarouselItem=B.CarouselItem,
+			Col=B.Col,
+			Row=B.Row,
+			Tabs=B.Tabs,
+			Tab=B.Tab,
+			Panel=B.Panel,
+			Navbar=B.Navbar,
+			NavBrand=B.NavBrand,
+			Nav=B.Nav,
+			NavItem=B.NavItem,
+			NavDropdown=B.NavDropdown,
+			MenuItem=B.MenuItem,
+			Jumbotron=B.Jumbotron,
+			Navbar=B.Navbar;
 		var staff=(this.organizeGroups(STAFF, 2)).map(function(el,i) {return <Row key={i} className="staffRow">{el}</Row>})
 		var screen={
 			main: (
@@ -161,7 +232,7 @@ var Home=React.createClass({
 							</a>
 						</Col>
 						<Col style={{textAlign: "center"}} lg={4} md={4} sm={12}>
-							<a type="button" className="btn btn-default" href="">
+							<a type="button" className="btn btn-default" href="#archives">
 								<Row>
 									<Col lg={12} md={12} sm={12} className="button-logo">
 										<img className="center-block" src="Pictures/coffee.png" alt="Coffee Icon" height="90" width="90"></img>
@@ -229,7 +300,7 @@ var Home=React.createClass({
 							<h1 > Archives </h1>
 						</Col>
 					</Row>
-					Not finished.
+					{this.organize(4)}
 				</div>
 				),
 			aboutUs: (
@@ -261,7 +332,13 @@ var Home=React.createClass({
 							<h1 >Latest Issue</h1>
 						</Col>
 					</Row>
-					Not finished.
+					<br/>
+					<Row>
+						<Col className="pageTitle" lg={12} md={12} sm={12} xs={12}>	
+							Not finished.
+						</Col>
+					</Row>
+					{this.organize(4)}
 				</div>
 				),
 			contactUs: (
@@ -271,7 +348,12 @@ var Home=React.createClass({
 							<h1 > Contact Us</h1>
 						</Col>
 					</Row>
-					Not finished.
+					<br/>
+					<Row>
+						<Col className="pageTitle" lg={12} md={12} sm={12} xs={12}>	
+							Not finished.
+						</Col>
+					</Row>		
 				</div>
 				),
 			represent: (
@@ -281,7 +363,12 @@ var Home=React.createClass({
 							<h1 >Represent the MJM at your university!</h1>
 						</Col>
 					</Row>
-					<p>The MJM’s editorial staff is comprised of students in the Faculty of Medicine at McGill University. Our goal is to publish high-quality work composed by students around the world. If you would like to represent the MJM at your university and help us promote opportunities for students to publish and facilitate discussion between students on the topic of medicine, join our volunteer staff today! </p>
+					<br/>
+					<Row>
+						<Col className="pageTitle" lg={12} md={12} sm={12} xs={12}>	
+							<p>The MJM’s editorial staff is comprised of students in the Faculty of Medicine at McGill University. Our goal is to publish high-quality work composed by students around the world. If you would like to represent the MJM at your university and help us promote opportunities for students to publish and facilitate discussion between students on the topic of medicine, join our volunteer staff today! </p>
+						</Col>
+					</Row>	
 				</div>
 				),
 		};
@@ -295,36 +382,30 @@ var Home=React.createClass({
 								// <img style={{width: "100px"}}id="pen" src="Pictures/pen.png"></img>
 		return (
 			<div>
+				<Navbar  fixedTop toggleNavKey={0} >
+					<Nav>
+				    <NavBrand>
+									<div id="McGill-name">
+											McGill
+									</div>		
+									<div className="banner">
+										<h1 ><b id="headTitle">Journal of Medicine</b></h1>
+										<br/>
+									</div>
+				    </NavBrand>
+					</Nav>		
+					<Nav pullRight className="nana" eventKey={0}>
+						<NavItem id="navBut" eventKey={0} href="#main" onClick = {this.handleScreen.bind(null,'main')}>HOME</NavItem>
+						<NavItem id="navBut" eventKey={2} href="#news" onClick = {this.handleScreen.bind(null,'news')}>NEWS</NavItem>
+						<NavItem id="navBut" eventKey={4} href="#aboutUs" onClick = {this.handleScreen.bind(null,'aboutUs')}>ABOUT US</NavItem>
+						<NavDropdown eventKey={6} title="CONTACT" id="basic-nav-dropdown">
+							<MenuItem eventKey="1" href="#contactUs" onClick = {this.handleScreen.bind(null,'contactUs')}>Contact Us</MenuItem>
+							<MenuItem eventKey="2" href="#represent" onClick = {this.handleScreen.bind(null,'represent')}>Become a Representative</MenuItem>
+						</NavDropdown>	
+					</Nav>
+				</Navbar>
 				<Panel className="encompass" >
 					<div className="header">
-						<Row style={{textAlign:"center"}}>
-								<Row id ="headerText">	
-									<Col className="menuBar" lg={12} md={12} xs={12}>	
-										<Navbar fixedTop toggleNavKey={0} >
-											<Nav>
-										    <NavBrand>
-															<div id="McGill-name">
-																	McGill
-															</div>		
-															<div className="banner">
-																<h1 ><b id="headTitle">Journal of Medicine</b></h1>
-																<br/>
-															</div>
-										    </NavBrand>
-											</Nav>		
-											<Nav pullRight className="nana" eventKey={0}>
-												<NavItem id="navBut" eventKey={0} href="#main" onClick = {this.handleScreen.bind(null,'main')}>HOME</NavItem>
-												<NavItem id="navBut" eventKey={2} href="#news" onClick = {this.handleScreen.bind(null,'news')}>NEWS</NavItem>
-												<NavItem id="navBut" eventKey={4} href="#aboutUs" onClick = {this.handleScreen.bind(null,'aboutUs')}>ABOUT US</NavItem>
-												<NavDropdown eventKey={6} title="CONTACT" id="basic-nav-dropdown">
-													<MenuItem eventKey="1" href="#contactUs" onClick = {this.handleScreen.bind(null,'contactUs')}>Contact Us</MenuItem>
-													<MenuItem eventKey="2" href="#represent" onClick = {this.handleScreen.bind(null,'represent')}>Become a Representative</MenuItem>
-												</NavDropdown>	
-											</Nav>
-										</Navbar>
-									</Col>	
-								</Row>	
-						</Row>
 						<Row className="main">
 							<Col lg={12} md={12} xs={12}>
 								{screen [this.state.screen]}
