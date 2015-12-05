@@ -6,7 +6,7 @@
 .header{
 	/*margin-left: 2%;
 	margin-right: 2%;*/
-}
+}	
 .navbar{
 	max-height:100px;
 }
@@ -251,8 +251,10 @@ nav.nana.navbar-collapse.collapse{
 	color: #E10018;
 }
 .container{
-	padding-left: 0;
-
+	padding-left: 15px;
+	margin-left: 10%;
+	margin-right: 10%;
+	height: 140px;
 }
 a#homeButton{
 	padding-left: 0;
